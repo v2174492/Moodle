@@ -1,2 +1,32 @@
+# Программа для вычисления факториала числа с обработкой ошибок
 
-hfhfjhjghjgh
+def factorial(n: int) -> int:
+    """Вычисляет факториал числа n.
+    
+    Аргументы:
+        n (int): Неотрицательное целое число.
+        
+    Возвращает:
+        int: Факториал числа n.
+        
+    Исключения:
+        ValueError: Если n отрицательное.
+    """
+    if n < 0:
+        raise ValueError("Факториал отрицательного числа не определен.")
+    return 1 if n == 0 else n * factorial(n - 1)
+
+def main():
+    """Основная функция программы."""
+    print("=== Вычисление факториала ===")
+    try:
+        number = int(input("Введите целое неотрицательное число: "))
+        result = factorial(number)
+        print(f"Факториал числа {number} равен {result}.")
+    except ValueError as e:
+        print(f"Ошибка: {e}")
+    except Exception:
+        print("Непредвиденная ошибка!")
+
+if __name__ == "__main__":
+    main()
